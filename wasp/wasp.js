@@ -220,6 +220,7 @@ var sendStats = function(cmd)
   var tmp = cmd.response.slice(cmd.response.indexOf('Latency')).replace(/\n/g, ' ').split(' ').filter(Boolean);
 
   var stats = {
+    wrkResponse: cmd.response,
     latency:
     {
       avg: convertStat(tmp[1].replace('us', 'mu'), 'ms') || 0,
